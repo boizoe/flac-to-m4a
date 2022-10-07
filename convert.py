@@ -26,24 +26,24 @@ from mutagen.flac import FLAC
 FLACFILE = '01.flac'
 M4AFILE = '01.m4a'
 
-# FLAC              M4A
+# EasyTag       FLAC            M4A
 '''
-to check tags mapping I'll fill all tags in m4a and in flac and compare
-'''
-'''
-TITLE               ©nam
-ARTIST              ©ART
-ALBUMARTIST         aART
-ALBUM               ©alb
-DISCNUMBER=01       disk=(1, 1)
-DISCTOTAL=01        disk=(1, 1)
-DATE=2012           ©day=2011
-TRACKNUMBER=01      trkn=(1, 22)
-TRACKTOTAL=04       trkn=(1, 22)
-GENRE=Metal         ©gen=Soundtrack
-                    ©cmt=https://www.youtube.com/playlist?list=PLC26D4FE16FA60595
-                    covr=[32139 bytes of data]
-
+Title           TITLE           ©nam
+Artist          ARTIST          ©ART
+Album Artist    ALBUMARTIST     aART
+Album           ALBUM           alb
+CD              DISCNUMBER=01   disk=(1, 1)
+CD              DISCTOTAL=01    disk=(1, 1)
+Year            DATE=2012       ©day=2011
+Track           TRACKNUMBER=01  trkn=(1, 22)
+Track           TRACKTOTAL=04   trkn=(1, 22)
+Genre           GENRE           ©gen=tag - Genre
+Comment         DESCRIPTION     ©cmt
+Composer        COMPOSER        ©wrt
+Orig.artist     PERFORMER
+Copyright       COPYRIGHT       cprt
+URL             CONTACT
+Encoded by      ENCODED-BY      ©too
 '''
 
 def main(flacfile, m4afile):
