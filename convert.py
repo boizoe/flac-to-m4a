@@ -10,14 +10,6 @@ from mutagen.flac import FLAC
 from mutagen.mp4 import MP4
 from mutagen.mp4 import MP4Cover
 
-#SRC_DIR = 'flac'
-#DST_DIR = 'm4a'
-# quality: 0-127
-# strategy: 0 CBR, 1 ABR, 2 VBR_constrained, 3 VBR
-# file:  'mp4f' = MPEG-4 Audio (.mp4), 'm4af' = Apple MPEG-4 Audio (.m4a, .m4r)
-# caffeinate find . -type f -name *.flac -exec \
-# afconvert -v -d aac -f m4af -q 127 -s 3 {} ../mzkDst/{}.m4a +
-#CONVERT_CMD = "afconvert --data aac --file m4af --quality 127 --strategy 3 src-file dst-file"
 # %%
 
 content = {}
@@ -36,6 +28,9 @@ def convert_flac_to_m4a(src, dst):
                 content[os.path.join(root, file)] = os.path.join(newroot, newfile)
     for item in content.items():
         if not os.path.isfile(item[1]):
+            # quality: 0-127
+            # strategy: 0 CBR, 1 ABR, 2 VBR_constrained, 3 VBR
+            # file:  'mp4f' = MPEG-4 Audio (.mp4), 'm4af' = Apple MPEG-4 Audio (.m4a, .m4r)
             afconvert = "afconvert --data aac --file m4af --quality 127 --strategy 3 " + '"' + item[0] + '" "' + item[1] + '"'
             returned_value = os.system(afconvert) # returns the exit code in unix
             if returned_value != 0:
