@@ -105,6 +105,6 @@ def main(src, dst):
 
 if __name__ == "__main__":
     #main(sys.argv[1:], sys.argv[2])
-    main('flac', 'm4a')
+    main('mzcSrc', 'm4a')
 
 # %%
