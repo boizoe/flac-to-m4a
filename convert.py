@@ -85,10 +85,10 @@ def mtgn_copy_tags(srcfile, dstfile):
             #if f.pictures[0].mime == 'image/jpeg':
             dst.tags['covr'] = [MP4Cover(src.pictures[0].data)]
         dst.save()
-    except Exception:
+    except Exception as err:
         print('FAILED: tags ' + '"' + srcfile + '"' + ' -> ' + '"' + dstfile + '"')
         failed = open('failed.txt', 'a', encoding='UTF-8')
-        failed.write(srcfile + ' ' + Exception + '\n')
+        failed.write(srcfile + ' ' + str(err) + '\n')
         failed.close()
     else:
         succeed = open('archive.txt', 'a', encoding='UTF-8')
@@ -105,6 +105,6 @@ def main(src, dst):
 
 if __name__ == "__main__":
     #main(sys.argv[1:], sys.argv[2])
-    main('mzkSrc', 'm4a')
+    main('flac', 'm4a')
 
 # %%
