@@ -1,17 +1,26 @@
 #!/usr/bin/env python3
 
+# TODO delete print() from the script
+# https://inventwithpython.com/blog/2012/04/06/stop-using-print-for-debugging-a-5-minute-quickstart-guide-to-pythons-logging-module/
+
+# TODO replace os.system with subprocess
+# https://docs.python.org/3/library/subprocess.html#module-subprocess
+
+
 '''
 convert using OS tools and copy tags after it
 https://mutagen.readthedocs.io/
 '''
 
 import os
+import logging
 from mutagen.flac import FLAC
 from mutagen.mp4 import MP4
 from mutagen.mp4 import MP4Cover
 
 # %%
 
+logging.basicConfig(filename='log.txt', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 content = {}
 
 def convert_flac_to_m4a(src, dst):
@@ -105,6 +114,6 @@ def main(src, dst):
 
 if __name__ == "__main__":
     #main(sys.argv[1:], sys.argv[2])
-    main('mzkSrc', 'm4a')
+    main('flac', 'm4a')
 
 # %%
